@@ -14,6 +14,7 @@ public class Division {
 	
 	/**
 	* Mutateur de code
+	* @param code
 	*/
 	public void setCode(int code) {
 		this.code = code;
@@ -29,6 +30,7 @@ public class Division {
 	
 	/**
 	* Mutateur de libelle
+	* @param libelle
 	*/
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
