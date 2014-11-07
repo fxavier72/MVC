@@ -7,16 +7,16 @@ import java.sql.SQLException;
 
 public class ConnexionPostgreSql {
 	
+	private static configConnexion connexion = new configConnexion();
+	
 	private static Connection connect;
 	
 	private static String url = "jdbc:postgresql://localhost:5432/flebret";
-	private static String user = "user";
-	private static String passwd = "password";
 	
 	public static Connection getInstance(){
 		if (connect == null){
 			try{
-				connect = DriverManager.getConnection(url, user, passwd);
+				connect = DriverManager.getConnection(url, connexion.getLogin(),connexion.getPassword());
 			}catch (SQLException e){
 				e.printStackTrace();
 			}
