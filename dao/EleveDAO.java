@@ -14,7 +14,7 @@ public class EleveDAO extends DAO<Eleve> {
 	public Eleve create(Eleve obj) {
 		try {
 			 	PreparedStatement prepare = this.connect
-                                                .prepareStatement("INSERT INTO \"MVC\".Division VALUES(?, ?, ?, ?, ?)"
+                                                .prepareStatement("INSERT INTO \"mvc\".eleve VALUES(?, ?, ?, ?, ?)"
                                                     );
 				prepare.setInt(1,obj.getCode());
 				prepare.setString(2, obj.getNom());
@@ -78,7 +78,7 @@ public class EleveDAO extends DAO<Eleve> {
                              ResultSet.TYPE_SCROLL_INSENSITIVE, 
                              ResultSet.CONCUR_UPDATABLE
                         ).executeUpdate(
-                             "DELETE FROM \"MVC\".eleve WHERE code = '" + obj.getCode()+"'"
+                             "DELETE FROM \"mvc\".eleve WHERE code = '" + obj.getCode()+"'"
                         );
 			
 	    } catch (SQLException e) {

@@ -11,7 +11,7 @@ public class ConnexionPostgreSql {
 	
 	private static Connection connect;
 	
-	private static String url = "jdbc:postgresql://localhost:5432/flebret";
+	private static String url = "jdbc:postgresql://172.16.99.2:5432/flebret";
 	
 	public static Connection getInstance(){
 		if (connect == null){

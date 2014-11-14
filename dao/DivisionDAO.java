@@ -11,7 +11,7 @@ public class DivisionDAO extends DAO<Division> {
 		public Division create(Division obj) {
 			try {
 				 	PreparedStatement prepare = this.connect
-	                                                .prepareStatement("INSERT INTO \"MVC\".Division VALUES(?, ?)"
+	                                                .prepareStatement("INSERT INTO \"mvc\".Division VALUES(?, ?)"
 	                                                    );
 					prepare.setInt(1,obj.getCode());
 					prepare.setString(2, obj.getLibelle());
@@ -33,7 +33,7 @@ public class DivisionDAO extends DAO<Division> {
 	                                    .createStatement(
 	                                            	ResultSet.TYPE_SCROLL_INSENSITIVE, 
 	                                                ResultSet.CONCUR_UPDATABLE)
-	                                    .executeQuery("SELECT * FROM \"MVC\".Division WHERE code = '" + code +"'");
+	                                    .executeQuery("SELECT * FROM \"mvc\".Division WHERE code = '" + code +"'");
 	            if(result.first())
 	            		laDivision = new Division(code, result.getString("libelle"));   
 			    } catch (SQLException e) {
@@ -50,7 +50,7 @@ public class DivisionDAO extends DAO<Division> {
 	                    	ResultSet.TYPE_SCROLL_INSENSITIVE, 
 	                        ResultSet.CONCUR_UPDATABLE
 	                     ).executeUpdate(
-	                    	"UPDATE \"MVC\".Division SET libelle = '" + obj.getLibelle() + "'"+
+	                    	"UPDATE \"mvc\".Division SET libelle = '" + obj.getLibelle() + "'"+
 	                    	" WHERE code = '" + obj.getCode()+"'"
 	                     );
 				
@@ -71,7 +71,7 @@ public class DivisionDAO extends DAO<Division> {
 	                             ResultSet.TYPE_SCROLL_INSENSITIVE, 
 	                             ResultSet.CONCUR_UPDATABLE
 	                        ).executeUpdate(
-	                             "DELETE FROM \"MVC\".Division WHERE code = '" + obj.getCode()+"'"
+	                             "DELETE FROM \"mvc\".Division WHERE code = '" + obj.getCode()+"'"
 	                        );
 				
 		    } catch (SQLException e) {
