@@ -36,6 +36,11 @@ public class Division {
 		this.libelle = libelle;
 	}
 	
+	public Division(){
+		code = 5;
+		libelle = "";
+	}
+	
 	/**
      * Met à jour le code et le libelle.
      * 

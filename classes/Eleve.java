@@ -6,6 +6,7 @@ public class Eleve {
 	private String nom;
 	private String prenom;
 	private String dateNaiss;
+	private Division uneDivision;
 	
 	/**
 	* Accesseur de code
@@ -71,6 +72,14 @@ public class Eleve {
 		this.dateNaiss = dateNaiss;
 	}
 	
+	public Division getUneDivision(){
+		return uneDivision;
+	}
+	
+	public void setUneDivision(Division uneDivision){
+		this.uneDivision = uneDivision;
+	}
+	
 	/**
      * Parametre par défaut (le code, le nom, le prenom, et la date de naissance)
      * 
@@ -91,6 +100,7 @@ public class Eleve {
 		nom = "testNom";
 		prenom = "testPrenom";
 		dateNaiss = "testDate";
+		uneDivision = new Division();
 	}
 	
 	/**
@@ -108,11 +118,12 @@ public class Eleve {
      * @param dateNaiss
      * 			  La nouvelle date de naissance
      */
-	public Eleve(int code, String nom, String prenom, String dateNaiss){
+	public Eleve(int code, String nom, String prenom, String dateNaiss, Division uneDivision){
 		this.code = code;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaiss = dateNaiss;
+		this.uneDivision = uneDivision;
 	}
 	
 	/**
