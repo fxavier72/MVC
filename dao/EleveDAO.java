@@ -3,6 +3,8 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import classes.Division;
 import classes.Eleve;
@@ -47,6 +49,26 @@ public class EleveDAO extends DAO<Eleve> {
 		            e.printStackTrace();
 		    }
 		   return unEleve;
+	}
+	
+	public List<Eleve> readAll() {
+		List<Eleve> lesEleves = new ArrayList<Eleve>();
+		try {
+            ResultSet result = this .connect
+                                    .createStatement(
+                                            	ResultSet.TYPE_SCROLL_INSENSITIVE, 
+                                                ResultSet.CONCUR_UPDATABLE)
+                                    .executeQuery("SELECT * FROM \"mvc\".eleve");
+            while(result.next()){
+            	Eleve unEleve = new Eleve(result.getInt("code"), result.getString("nom"), result.getString("prenom"), result.getString("dateNaiss"), dao.read(result.getInt("codeDivision")));
+            	
+            	lesEleves.add(unEleve);
+            }
+            
+		    } catch (SQLException e) {
+		            e.printStackTrace();
+		    }
+		   return lesEleves;
 	}
 	
 	public Eleve update(Eleve obj) {
