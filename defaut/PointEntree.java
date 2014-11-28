@@ -8,6 +8,8 @@ import dao.DAO;
 import dao.DivisionDAO;
 import dao.EleveDAO;
 
+import dao.ConnexionPostgreSql;
+
 public class PointEntree {
 
 	public static Vue interfaceGraph;
@@ -17,18 +19,12 @@ public class PointEntree {
 	 */
 	public static void main(String[] args) {
 		DAO<Division> modeleDivision = new DivisionDAO();
-
 		DAO<Eleve> modeleEleve = new EleveDAO();
-
 		ControleurPrincipal leControleur = new ControleurPrincipal(modeleDivision,modeleEleve);
-
-		interfaceGraph = new Vue(leControleur);
-
+		Vue interfaceGraph = new Vue(leControleur);
 		leControleur.lienVue(interfaceGraph);
-		
-		Vue.main(args);
 
-		//ConnectionPostgreSQL.Arreter();
+		ConnexionPostgreSql.Stop();
 
 	}
 

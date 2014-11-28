@@ -38,21 +38,6 @@ public class Vue extends JFrame {
 	private JMenuItem supprimer = new JMenuItem("Supprimer");
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PointEntree.interfaceGraph.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 * @param leControleur 
 	 */
@@ -86,17 +71,11 @@ public class Vue extends JFrame {
 			}
 			
 		this.menuBar.add(eleve);
-		/*fermer.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.exit(0);
-			}
-		});*/
 		
 		fermer.addActionListener(leControleur);
 		menuBar.add(fermer);
 		
-			
+		setVisible(true);	
 		
 		
 	}

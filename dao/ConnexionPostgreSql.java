@@ -23,4 +23,13 @@ public class ConnexionPostgreSql {
 		}
 		return connect;
 	}
+	
+	public static void Stop(){
+		try {
+			connect.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
